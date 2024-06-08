@@ -1,0 +1,4 @@
+name: DimensionStacking
+version: '${version}'
+main: me.dunescifye.dimensionstacking.DimensionStacking
+api-version: '1.20'
