@@ -8,6 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.util.Vector;
+
+import static me.dunescifye.dimensionstacking.DimensionStacking.getPlugin;
 
 public class VoidListener implements Listener {
 
@@ -17,31 +20,67 @@ public class VoidListener implements Listener {
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.getWorld().getEnvironment() == World.Environment.NORMAL) {
                     if (p.getY() > 500) {
-                        Location location = new Location(Bukkit.getWorld("world_the_end"), p.getX(), -10, p.getZ());
+                        Vector vec = p.getVelocity();
+                        Location location = new Location(Bukkit.getWorld("world_the_end"), p.getX(), 0, p.getZ());
+                        location.setYaw(p.getYaw());
+                        location.setPitch(p.getPitch());
                         p.teleport(location);
+                        Bukkit.getScheduler().runTask(getPlugin(), () -> {
+                           p.setVelocity(vec);
+                        });
                     } else if (p.getY() < -80) {
+                        Vector vec = p.getVelocity();
                         Location location = new Location(Bukkit.getWorld("world_nether"), p.getX() / 8, 320, p.getZ() / 8);
+                        location.setYaw(p.getYaw());
+                        location.setPitch(p.getPitch());
                         p.teleport(location);
+                        Bukkit.getScheduler().runTask(getPlugin(), () -> {
+                            p.setVelocity(vec);
+                        });
                     }
                 } else if (p.getWorld().getEnvironment() == World.Environment.NETHER) {
                     if (p.getY() > 320) {
+                        Vector vec = p.getVelocity();
                         Location location = new Location(Bukkit.getWorld("world"), p.getX() * 8, -60, p.getZ());
+                        location.setYaw(p.getYaw());
+                        location.setPitch(p.getPitch());
                         p.teleport(location);
+                        Bukkit.getScheduler().runTask(getPlugin(), () -> {
+                            p.setVelocity(vec);
+                        });
                     } else if (p.getY() < -20) {
+                        Vector vec = p.getVelocity();
                         Location location = new Location(Bukkit.getWorld("world_the_end"), p.getX() * 8, 320, p.getZ() * 8);
+                        location.setYaw(p.getYaw());
+                        location.setPitch(p.getPitch());
                         p.teleport(location);
+                        Bukkit.getScheduler().runTask(getPlugin(), () -> {
+                            p.setVelocity(vec);
+                        });
                     }
                 } else if (p.getWorld().getEnvironment() == World.Environment.THE_END) {
                     if (p.getY() > 320) {
+                        Vector vec = p.getVelocity();
                         Location location = new Location(Bukkit.getWorld("world_nether"), p.getX() / 8, -10, p.getZ() / 8);
+                        location.setYaw(p.getYaw());
+                        location.setPitch(p.getPitch());
                         p.teleport(location);
-                    } else if (p.getY() < -20) {
+                        Bukkit.getScheduler().runTask(getPlugin(), () -> {
+                            p.setVelocity(vec);
+                        });
+                    } else if (p.getY() < -25) {
+                        Vector vec = p.getVelocity();
                         Location location = new Location(Bukkit.getWorld("world"), p.getX(), 500, p.getZ());
+                        location.setYaw(p.getYaw());
+                        location.setPitch(p.getPitch());
                         p.teleport(location);
+                        Bukkit.getScheduler().runTask(getPlugin(), () -> {
+                            p.setVelocity(vec);
+                        });
                     }
                 }
             }
-        }, 0L, 20L);
+        }, 0L, 5L);
     }
 
     @EventHandler
