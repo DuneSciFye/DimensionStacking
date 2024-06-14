@@ -15,10 +15,15 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        name = "jitpack.io"
+        url = "https://jitpack.io/"
+    }
 }
 
 dependencies {
     compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
+    compileOnly "com.github.Gecolay.GSit:core:1.9.0"
 }
 
 def targetJavaVersion = 17
