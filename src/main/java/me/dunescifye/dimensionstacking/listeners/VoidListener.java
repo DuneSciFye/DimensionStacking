@@ -8,6 +8,7 @@ import me.dunescifye.dimensionstacking.DimensionStacking;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -228,19 +229,19 @@ public class VoidListener implements Listener {
     @EventHandler
     public void onEntityDamage(EntityDamageEvent e) {
         if (e.getCause() == EntityDamageEvent.DamageCause.VOID) {
-            Player p = (Player) e.getEntity();
-            if (p.getWorld().getEnvironment() == World.Environment.THE_END) {
+            Entity entity = e.getEntity();
+            if (entity.getWorld().getEnvironment() == World.Environment.THE_END) {
                 e.setCancelled(true);
-                Location location = new Location(Bukkit.getWorld("world"), p.getX(), 399, p.getZ());
-                p.teleport(location);
-            } else if (p.getWorld().getEnvironment() == World.Environment.NORMAL) {
+                Location location = new Location(Bukkit.getWorld("world"), entity.getX(), 399, entity.getZ());
+                entity.teleport(location);
+            } else if (entity.getWorld().getEnvironment() == World.Environment.NORMAL) {
                 e.setCancelled(true);
-                Location location = new Location(Bukkit.getWorld("world_nether"), p.getX() / 8, 320, p.getZ() / 8);
-                p.teleport(location);
-            } else if (p.getWorld().getEnvironment() == World.Environment.NETHER) {
+                Location location = new Location(Bukkit.getWorld("world_nether"), entity.getX() / 8, 320, entity.getZ() / 8);
+                entity.teleport(location);
+            } else if (entity.getWorld().getEnvironment() == World.Environment.NETHER) {
                 e.setCancelled(true);
-                Location location = new Location(Bukkit.getWorld("world_the_end"), p.getX() * 8, 320, p.getZ() * 8);
-                p.teleport(location);
+                Location location = new Location(Bukkit.getWorld("world_the_end"), entity.getX() * 8, 320, entity.getZ() * 8);
+                entity.teleport(location);
             }
         }
     }
