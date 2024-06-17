@@ -57,6 +57,7 @@ public class VoidListener implements Listener {
                                 Location location = new Location(Bukkit.getWorld("world_the_end"), p.getX(), -10, p.getZ());
                                 location.setYaw(p.getYaw());
                                 location.setPitch(p.getPitch());
+                                p.setFallDistance(0);
                                 p.teleport(location);
                                 Bukkit.getScheduler().runTask(getPlugin(), () -> p.setVelocity(vec.multiply(3)));
                             }
@@ -88,6 +89,7 @@ public class VoidListener implements Listener {
                                 Location location = new Location(Bukkit.getWorld("world_nether"), p.getX() / 8, 320, p.getZ() / 8);
                                 location.setYaw(p.getYaw());
                                 location.setPitch(p.getPitch());
+                                p.setFallDistance(0);
                                 p.teleport(location);
                                 Bukkit.getScheduler().runTask(getPlugin(), () -> p.setVelocity(vec.multiply(3)));
                             }
@@ -121,6 +123,7 @@ public class VoidListener implements Listener {
                                 Location location = new Location(Bukkit.getWorld("world"), p.getX() * 8, -60, p.getZ() * 8);
                                 location.setYaw(p.getYaw());
                                 location.setPitch(p.getPitch());
+                                p.setFallDistance(0);
                                 p.teleport(location);
                                 Bukkit.getScheduler().runTask(getPlugin(), () -> p.setVelocity(vec.multiply(3)));
                             }
@@ -152,6 +155,7 @@ public class VoidListener implements Listener {
                                 Location location = new Location(Bukkit.getWorld("world_the_end"), p.getX() / 8, 320, p.getZ() / 8);
                                 location.setYaw(p.getYaw());
                                 location.setPitch(p.getPitch());
+                                p.setFallDistance(0);
                                 p.teleport(location);
                                 Bukkit.getScheduler().runTask(getPlugin(), () -> p.setVelocity(vec.multiply(3)));
                             }
@@ -185,6 +189,7 @@ public class VoidListener implements Listener {
                                 Location location = new Location(Bukkit.getWorld("world_nether"), p.getX() / 8, -10, p.getZ() / 8);
                                 location.setYaw(p.getYaw());
                                 location.setPitch(p.getPitch());
+                                p.setFallDistance(0);
                                 p.teleport(location);
                                 Bukkit.getScheduler().runTask(getPlugin(), () -> p.setVelocity(vec.multiply(3)));
                             }
@@ -216,6 +221,7 @@ public class VoidListener implements Listener {
                                 Location location = new Location(Bukkit.getWorld("world"), p.getX(), 399, p.getZ());
                                 location.setYaw(p.getYaw());
                                 location.setPitch(p.getPitch());
+                                p.setFallDistance(0);
                                 p.teleport(location);
                                 Bukkit.getScheduler().runTask(getPlugin(), () -> p.setVelocity(vec.multiply(3)));
                             }
